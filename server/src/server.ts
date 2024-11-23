@@ -31,11 +31,11 @@ const startApolloServer = async () => {
   // if we're in production, serve client/dist as static assets so everything works off one port, 
   // no more dev server on client.
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist')));
+    app.use(express.static(path.join(__dirname, '../../client/dist')));
 
     // necessary for client-side routing to work
     app.get('*', (_req, res) => {
-      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+      res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
     });
   }
   
