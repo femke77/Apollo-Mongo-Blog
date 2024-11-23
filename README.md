@@ -38,7 +38,7 @@
   Clone the repository, run the install command and then 'npm start:dev'. Then navigate to the localhost port (3000) with your browser. Introspection available at 3001/graphql.
 
   ### Deployed Link
-  TBD
+ [Click here to go to deployed project](https://apollo-mongo-blog.onrender.com)
 
 ### Screenshots
 No screenshots yet.
