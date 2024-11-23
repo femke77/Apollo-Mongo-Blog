@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -19,7 +20,7 @@ const server = new ApolloServer({
 
 const startApolloServer = async () => {
   await server.start();
-  
+  await db;
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   
@@ -27,10 +28,12 @@ const startApolloServer = async () => {
     context: authenticateToken as any,
   }));
 
-  // if we're in production, serve client/dist as static assets
+  // if we're in production, serve client/dist as static assets so everything works off one port, 
+  // no more dev server on client.
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
+    // necessary for client-side routing to work
     app.get('*', (_req, res) => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
