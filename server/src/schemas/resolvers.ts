@@ -12,7 +12,7 @@ const forbiddenException = new GraphQLError(
     extensions: {
       code: "FORBIDDEN",
     },
-  }
+  },
 );
 
 const resolvers = {
@@ -27,7 +27,7 @@ const resolvers = {
       throw forbiddenException;
     },
     blogs: async () => {
-      return Blog.find().sort({ "dateCreated": -1 });
+      return Blog.find().sort({ dateCreated: -1 });
     },
     blog: async (_parent: any, { blogId }: { blogId: string }) => {
       return Blog.findById(blogId).populate("comments");
@@ -37,7 +37,7 @@ const resolvers = {
   Mutation: {
     addUser: async (
       _parent: any,
-      args: any
+      args: any,
     ): Promise<{ token: string; user: IUserDocument }> => {
       const user = await User.create(args);
       const token = signToken(user.username, user.email, user._id);
@@ -46,19 +46,16 @@ const resolvers = {
     },
     login: async (
       _parent: any,
-      { email, password }: { email: string; password: string }
+      { email, password }: { email: string; password: string },
     ): Promise<{ token: string; user: IUserDocument }> => {
       const user = await User.findOne({ email });
 
       if (!user || !(await user.isCorrectPassword(password))) {
-        throw new GraphQLError(
-            "Incorrect credentials. Please try again.",
-            {
-              extensions: {
-                code: "FORBIDDEN",
-              },
-            }
-          );
+        throw new GraphQLError("Incorrect credentials. Please try again.", {
+          extensions: {
+            code: "FORBIDDEN",
+          },
+        });
       }
 
       const token = signToken(user.username, user.email, user._id);
@@ -67,7 +64,7 @@ const resolvers = {
     addBlog: async (
       _parent: any,
       { blogData }: { blogData: IBlogInput },
-      context: IUserContext
+      context: IUserContext,
     ) => {
       if (context.user) {
         const blog = await Blog.create({
@@ -77,7 +74,7 @@ const resolvers = {
         const user = await User.findByIdAndUpdate(
           context.user._id,
           { $push: { blogs: blog._id } },
-          { new: true }
+          { new: true },
         );
 
         return blog;
@@ -87,13 +84,13 @@ const resolvers = {
     addComment: async (
       _parent: any,
       { blogId, comment }: { blogId: string; comment: string },
-      context: IUserContext
+      context: IUserContext,
     ) => {
       if (context.user) {
         const blog = await Blog.findByIdAndUpdate(
           blogId,
           { $push: { comments: { comment, username: context.user.username } } },
-          { new: true }
+          { new: true },
         );
         return blog;
       }
@@ -102,7 +99,7 @@ const resolvers = {
     removeBlog: async (
       _parent: any,
       { blogId }: { blogId: string },
-      context: IUserContext
+      context: IUserContext,
     ) => {
       if (context.user) {
         const blog = await Blog.findByIdAndDelete(blogId);
@@ -120,13 +117,13 @@ const resolvers = {
         title,
         content,
       }: { blogId: string; title: string; content: string },
-      context: IUserContext
+      context: IUserContext,
     ) => {
       if (context.user) {
         const blog = await Blog.findByIdAndUpdate(
           blogId,
           { title, content },
-          { new: true }
+          { new: true },
         );
         return blog;
       }

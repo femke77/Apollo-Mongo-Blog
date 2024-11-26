@@ -9,7 +9,6 @@ export const ADD_USER = gql`
         username
         email
         blogCount
-        
       }
     }
   }
@@ -24,7 +23,6 @@ export const LOGIN_USER = gql`
         username
         email
         blogCount
-       
       }
     }
   }

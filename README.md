@@ -1,74 +1,70 @@
-# Tech Blog Review App 
-  
+# Tech Blog Review App
 
-   ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-  
-  ## Description  ✏️
-  
-  A quick and simple blogging application with 1 level of comments for reviewing the technologies necessary for the upcoming project 3 final project.
-  
-  ## Table of Contents 📖
-  
-  [Installation](#installation)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
-  [Usage](#usage)
+## Description ✏️
 
-  
+A quick and simple blogging application with 1 level of comments for reviewing the technologies necessary for the upcoming project 3 final project.
 
-  [Issues](#known-issues)
+## Table of Contents 📖
 
-  [Contributing](#how-to-contribute)
+[Installation](#installation)
 
-  [Tests](#tests) 
+[Usage](#usage)
 
-  [Credits](#credits)
+[Issues](#known-issues)
 
-  [Questions](#questions)
-  
-  ## Installation 
-  
-  To install necessary dependencies, run the following command:
-  
-  ```
-  npm i
-  ```
-  
-  ## Usage 
-  
-  Clone the repository, run the install command and then 'npm start:dev'. Then navigate to the localhost port (3000) with your browser. Introspection available at 3001/graphql.
+[Contributing](#how-to-contribute)
 
-  ### Deployed Link
- [Click here to go to deployed project](https://apollo-mongo-blog.onrender.com)
+[Tests](#tests)
+
+[Credits](#credits)
+
+[Questions](#questions)
+
+## Installation
+
+To install necessary dependencies, run the following command:
+
+```
+npm i
+```
+
+## Usage
+
+Clone the repository, run the install command and then 'npm start:dev'. Then navigate to the localhost port (3000) with your browser. Introspection available at 3001/graphql.
+
+### Deployed Link
+
+[Click here to go to deployed project](https://apollo-mongo-blog.onrender.com)
 
 ### Screenshots
+
 ![home](./assets/home.png)
 ![blog](./assets/blog.png)
 
-______________________________________________________________________________________
+---
 
+## Known Issues
 
-
-## Known Issues 
 TBD
 
-## How To Contribute 
-  
+## How To Contribute
+
 Fork the repository and make a pull request with your new code.
-  
-## Tests 
-  
+
+## Tests
+
 To run tests, run the following command:
-  
-  ```
-  No tests
-  ```
 
+```
+No tests
+```
 
-## Credits 
+## Credits
+
 TBD
 
- ## Questions 
-  
- If you have any questions about the repo or notice any bugs you want to report, open an issue or contact me directly at megan.meyers.388@gmail.com. 
-  
-  
+## Questions
+
+If you have any questions about the repo or notice any bugs you want to report, open an issue or contact me directly at megan.meyers.388@gmail.com.

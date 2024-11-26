@@ -1,57 +1,53 @@
-import { Schema, model, type Document } from 'mongoose';
-import dayjs from 'dayjs'; 
-import type { IComment } from './Comment';
-import commentSchema from './Comment.js';
+import { Schema, model, type Document } from "mongoose";
+import dayjs from "dayjs";
+import type { IComment } from "./Comment";
+import commentSchema from "./Comment.js";
 
 export interface IBlog extends Document {
-    username: string;
-    title: string;
-    content: string;
-    dateCreated: Date | string;
-    comments: IComment[]
+  username: string;
+  title: string;
+  content: string;
+  dateCreated: Date | string;
+  comments: IComment[];
 }
 
 const blogSchema = new Schema<IBlog>(
-    {
-        username: {
-            type: String,
-            required: true,
-        
-        },
-        title: {
-            type: String,
-            required: true,
-        },
-        content: {
-            type: String,
-            required: true,
-        },
-        dateCreated: {
-            type: Date,
-            default: Date.now,
-            get: (timestamp: Date): string => dayjs(timestamp).format('MMM DD, YYYY [at] hh:mm A'),
-        },
-        comments: [ 
-          commentSchema
-        ],
-
+  {
+    username: {
+      type: String,
+      required: true,
     },
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    dateCreated: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp: Date): string =>
+        dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
+    },
+    comments: [commentSchema],
+  },
 
-    {
-        toJSON: {
-            getters: true
-        },
-    }
+  {
+    toJSON: {
+      getters: true,
+    },
+  },
 );
 
-blogSchema.virtual('commentCount').get(function (this: IBlog) {
-    return this.comments.length;
+blogSchema.virtual("commentCount").get(function (this: IBlog) {
+  return this.comments.length;
 });
 
-const Blog = model<IBlog>('Blog', blogSchema);
+const Blog = model<IBlog>("Blog", blogSchema);
 
 export default Blog;
-
 
 /**
  * Advantages of Using username Instead of userId

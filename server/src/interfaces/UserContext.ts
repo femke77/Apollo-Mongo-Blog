@@ -1,6 +1,6 @@
-import {Types} from 'mongoose';
+import { Types } from "mongoose";
 
-export default interface IUserContext { 
+export default interface IUserContext {
   user: {
     username: string | null;
     email: string | null;

@@ -52,7 +52,6 @@ class AuthService {
   login(idToken: string) {
     // Saves user token to localStorage
     localStorage.setItem("id_token", idToken);
-
   }
 
   logout() {

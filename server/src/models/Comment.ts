@@ -1,45 +1,39 @@
-import { Schema, type Document } from 'mongoose';
-import dayjs from 'dayjs';
+import { Schema, type Document } from "mongoose";
+import dayjs from "dayjs";
 
 export interface IComment extends Document {
-    username: string;
-    comment: string;
-    dateCreated: Date | string;
-
+  username: string;
+  comment: string;
+  dateCreated: Date | string;
 }
 
 const commentSchema = new Schema<IComment>(
-    {
-        username: {
-            type: String,
-            required: true,
-
-        },     
-        comment: {
-            type: String,
-            required: true,
-        },
-        dateCreated: {
-            type: Date,
-            default: Date.now,
-            get: (timestamp: Date): string => dayjs(timestamp).format('MMM DD, YYYY [at] hh:mm A'),
-        },
-
+  {
+    username: {
+      type: String,
+      required: true,
     },
+    comment: {
+      type: String,
+      required: true,
+    },
+    dateCreated: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp: Date): string =>
+        dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
+    },
+  },
 
-    {
-        toJSON: {
-            virtuals: true,
-            getters: true
-        },
-    }
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    },
+  },
 );
 
-
-
-
 export default commentSchema;
-
 
 /*
 This is a subdocument schema that "lives" on the Blog. This is a very simple approach to comments becasuse all the
