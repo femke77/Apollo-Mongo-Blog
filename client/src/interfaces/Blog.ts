@@ -7,4 +7,5 @@ export interface IBlog {
   username: string;
   dateCreated: string;
   comments?: IComment[] | null | [];
+  commentCount?: number;
 }

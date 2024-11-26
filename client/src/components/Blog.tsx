@@ -3,7 +3,7 @@ import type { IBlog } from "../interfaces/Blog";
 import { Link } from "react-router-dom";
 
 
-const Blog = ({ _id, title, content, username, dateCreated }: IBlog) => {
+const Blog = ({ _id, title, content, username, dateCreated, commentCount }: IBlog) => {
 
     return (
         <>
@@ -13,7 +13,7 @@ const Blog = ({ _id, title, content, username, dateCreated }: IBlog) => {
                 <p>By: {username} on {dateCreated}</p>
             </div>
             <div>
-
+                <p>Comments: {commentCount} </p>
             </div>
 
         </>

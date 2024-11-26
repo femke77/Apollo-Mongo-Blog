@@ -17,15 +17,19 @@ const BlogList = () => {
     return (
         <div>
             {blogs && blogs.map((blog: IBlog) => (
-                <Blog
-                    key={blog._id}
-                    username={blog.username}
-                    content={blog.content}
-                    dateCreated={blog.dateCreated}
-                    title={blog.title}
-                    _id={blog._id}
+                <div key={blog._id}>
+                    <Blog
 
-                />
+                        username={blog.username}
+                        content={blog.content}
+                        dateCreated={blog.dateCreated}
+                        title={blog.title}
+                        _id={blog._id}
+                        commentCount={blog.commentCount}
+
+                    />
+                    <hr />
+                </div>
             ))}
             {error && <div>Error: {error.message}</div>}
         </div>

@@ -4,6 +4,7 @@ import { signToken } from "../utils/auth.js";
 import type IUserContext from "../interfaces/UserContext";
 import type IUserDocument from "../interfaces/UserDocument";
 import type IBlogInput from "../interfaces/BlogInput";
+import dayjs from "dayjs";
 
 const forbiddenException = new GraphQLError(
   "You are not authorized to perform this action.",
@@ -26,7 +27,7 @@ const resolvers = {
       throw forbiddenException;
     },
     blogs: async () => {
-      return Blog.find().populate("comments");
+      return Blog.find().sort({ "dateCreated": -1 });
     },
     blog: async (_parent: any, { blogId }: { blogId: string }) => {
       return Blog.findById(blogId).populate("comments");

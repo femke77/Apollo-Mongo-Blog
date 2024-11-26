@@ -9,20 +9,7 @@ export const ADD_USER = gql`
         username
         email
         blogCount
-        blogs {
-          _id
-          username
-          title
-          content
-          dateCreated
-          comments {
-            _id
-            username
-            comment
-            dateCreated
-          }
-          commentCount
-        }
+        
       }
     }
   }
@@ -37,20 +24,7 @@ export const LOGIN_USER = gql`
         username
         email
         blogCount
-        blogs {
-          _id
-          username
-          title
-          content
-          dateCreated
-          comments {
-            _id
-            username
-            comment
-            dateCreated
-          }
-          commentCount
-        }
+       
       }
     }
   }
