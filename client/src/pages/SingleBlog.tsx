@@ -23,6 +23,7 @@ const SingleBlog = () => {
                 _id={blog._id}
 
             />
+            <h6>Comments</h6>
             {blog.comments && blog.comments.map((comment) => (
                 <>
                     <hr />
