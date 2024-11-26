@@ -42,6 +42,8 @@ Clone the repository, run the install command and then 'npm start:dev'. Then nav
 
 ![home](./assets/home.png)
 ![blog](./assets/blog.png)
+![add](./assets/add.png)
+![edit](./assets/edit.png)
 
 ---
 
