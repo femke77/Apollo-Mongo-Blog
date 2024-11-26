@@ -41,7 +41,7 @@
  [Click here to go to deployed project](https://apollo-mongo-blog.onrender.com)
 
 ### Screenshots
-No screenshots yet.
+![home](./assets/home.png)
 
 ______________________________________________________________________________________
 
