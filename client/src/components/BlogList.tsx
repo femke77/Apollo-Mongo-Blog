@@ -4,9 +4,9 @@ import Blog from "./Blog"
 import type { IBlog } from "../interfaces/Blog";
 
 const BlogList = () => {
-    // no cache policy makes a new blog appear immediately no reload
+    // cache policy makes a new blog appear immediately no reload
     const { loading, data, error } = useQuery(GET_BLOGS, {
-        fetchPolicy: "no-cache"
+        fetchPolicy:"cache-and-network"
     });
 
     const blogs = data?.blogs || [];
