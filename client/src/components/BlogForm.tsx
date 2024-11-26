@@ -1,18 +1,27 @@
 import { Form, Button } from "react-bootstrap";
-import { useMutation } from "@apollo/client";
-import { ADD_BLOG } from "../utils/mutations";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BlogForm = () => {
+const BlogForm = ({
+  prevTitle = "",
+  prevContent = "",
+  onSubmitFn,
+}: {
+  prevTitle?: string;
+  prevContent?: string;
+  onSubmitFn: (blog: { title: string; content: string }) => Promise<void>;
+}) => {
   const navigate = useNavigate();
-  const [blog, setBlog] = useState({ title: "", content: "" });
-  const [addBlog, { error }] = useMutation(ADD_BLOG);
+  const [blog, setBlog] = useState({ title: prevTitle, content: prevContent });
+
+  useEffect(() => {
+    setBlog({ title: prevTitle, content: prevContent });
+  }, [prevTitle, prevContent]);
 
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      await addBlog({ variables: { blogData: { ...blog } } });
+      await onSubmitFn(blog); 
       setBlog({ title: "", content: "" });
       navigate("/");
     } catch (e) {
@@ -32,7 +41,7 @@ const BlogForm = () => {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Comment</Form.Label>
+        <Form.Label>Content</Form.Label>
         <Form.Control
           value={blog.content}
           as="textarea"
@@ -44,7 +53,6 @@ const BlogForm = () => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-      {error && <div className="text-danger pb-3"> {error.message}</div>}
     </Form>
   );
 };

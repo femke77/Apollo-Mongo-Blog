@@ -6,6 +6,8 @@ import Blog from "../components/Blog";
 import { Button } from "react-bootstrap";
 import React from "react";
 import { IBlog } from "../interfaces/Blog";
+import { NavLink } from "react-router-dom";
+import AddBlog from "../components/AddBlog";
 
 const Profile = () => {
     const { loading, data, error } = useQuery(GET_ME, {
@@ -29,7 +31,7 @@ const Profile = () => {
             <h3>Add a Blog!</h3>
             <div className="mb-5">
                 {" "}
-                <BlogForm />
+                <AddBlog />
             </div>
 
             {blogs &&
@@ -44,6 +46,7 @@ const Profile = () => {
                             commentCount={blog.commentCount}
                         />
                         <Button onClick={handleDelete} value={blog._id} variant="danger">Delete</Button>
+                      <NavLink to={`/edit-blog/${blog._id}`}>Edit Blog</NavLink>
                         <hr />
                     </div>
                 ))}
