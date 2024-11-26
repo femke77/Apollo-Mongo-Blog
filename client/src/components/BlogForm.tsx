@@ -21,7 +21,7 @@ const BlogForm = ({
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      await onSubmitFn(blog); 
+      await onSubmitFn(blog);
       setBlog({ title: "", content: "" });
       navigate("/");
     } catch (e) {

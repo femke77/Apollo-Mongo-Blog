@@ -16,9 +16,10 @@ const Edit = () => {
     return <div>Loading...</div>;
   }
 
-  const updateBlog = async (updatedBlog: { title: string; content: string }) => {
-   console.log({...updatedBlog});
-   
+  const updateBlog = async (updatedBlog: {
+    title: string;
+    content: string;
+  }) => {
     try {
       await editBlog({
         variables: {
@@ -44,8 +45,5 @@ const Edit = () => {
     </div>
   );
 };
-
-
-
 
 export default Edit;
