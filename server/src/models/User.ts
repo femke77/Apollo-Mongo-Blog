@@ -28,7 +28,7 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: true,
     },
-    // Referenced pattern  (similar to a foreign key in SQL)
+    // Referenced pattern (similar to a foreign key in SQL)
     blogs: [
       {
         type: Schema.Types.ObjectId,
@@ -36,7 +36,6 @@ const userSchema = new Schema<IUser>(
       },
     ],
    
-
   },
   // set this to use virtual below
   {

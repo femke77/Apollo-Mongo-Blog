@@ -32,7 +32,6 @@ const typeDefs = gql`
   }
 
   input BlogInput {
-    username: String!
     title: String!
     content: String!
   }
@@ -40,7 +39,7 @@ const typeDefs = gql`
   type Query {
     me: User
     blogs: [Blog]
-    blog(_id: ID!): Blog
+    blog(blogId: ID!): Blog
   }
 
   type Mutation {

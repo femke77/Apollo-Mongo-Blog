@@ -1,9 +1,9 @@
 import { Schema, model, type Document } from 'mongoose';
 import dayjs from 'dayjs'; 
-import { IComment } from './Comment';
-import commentSchema from './Comment';
+import type { IComment } from './Comment';
+import commentSchema from './Comment.js';
 
-interface IBlog extends Document {
+export interface IBlog extends Document {
     username: string;
     title: string;
     content: string;
@@ -16,7 +16,7 @@ const blogSchema = new Schema<IBlog>(
         username: {
             type: String,
             required: true,
-            unique: true,
+        
         },
         title: {
             type: String,

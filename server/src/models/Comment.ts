@@ -13,7 +13,7 @@ const commentSchema = new Schema<IComment>(
         username: {
             type: String,
             required: true,
-            unique: true,
+
         },     
         comment: {
             type: String,
