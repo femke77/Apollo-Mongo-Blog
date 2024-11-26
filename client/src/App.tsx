@@ -46,8 +46,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-
+    <div className='p-2'>
       <Outlet context={[loggedIn, setLoggedIn] satisfies AuthContextType} />
+    </div>
     </ApolloProvider>
   );
 }
