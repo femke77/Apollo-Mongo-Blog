@@ -1,8 +1,10 @@
+import BlogForm from "../components/BlogForm";
+
 const Profile = () => {
     return (
         <div>
-            <h1 className="display-2">Profile</h1>
-            <p>Welcome to the profile page!</p>
+            <h3>Add a Blog!</h3>
+       <BlogForm/>
         </div>
     )
 }

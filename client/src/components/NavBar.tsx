@@ -17,7 +17,7 @@ function NavBar({ loggedIn, setLoggedIn }: { loggedIn: boolean; setLoggedIn: Rea
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#home">Tech Blog</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/">Tech Blog</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

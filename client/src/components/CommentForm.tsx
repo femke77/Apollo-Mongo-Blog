@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../utils/mutations";
 import { useState } from "react";
 
-const CommentForm = ({ blogId }: {blogId: string}) => {
+const CommentForm = ({ blogId }: {blogId: string | undefined}) => {
     const [comment, setComment] = useState<string>("");
     const [addComment, {error}] = useMutation(ADD_COMMENT);
 

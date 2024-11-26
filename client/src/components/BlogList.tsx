@@ -4,8 +4,10 @@ import Blog from "./Blog"
 import type { IBlog } from "../interfaces/Blog";
 
 const BlogList = () => {
-
-    const { loading, data, error } = useQuery(GET_BLOGS);
+    // no cache policy makes a new blog appear immediately no reload
+    const { loading, data, error } = useQuery(GET_BLOGS, {
+        fetchPolicy: "no-cache"
+    });
 
     const blogs = data?.blogs || [];
     if (loading) {
@@ -14,9 +16,7 @@ const BlogList = () => {
 
     return (
         <div>
-
             {blogs && blogs.map((blog: IBlog) => (
-
                 <Blog
                     key={blog._id}
                     username={blog.username}

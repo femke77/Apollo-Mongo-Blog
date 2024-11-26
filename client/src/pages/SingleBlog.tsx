@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { GET_BLOG } from "../utils/queries";
 import Blog from "../components/Blog";
 import { IBlog } from "../interfaces/Blog";
+import CommentForm from "../components/CommentForm";
 
 const SingleBlog = () => {
 
@@ -23,7 +24,9 @@ const SingleBlog = () => {
                 _id={blog._id}
 
             />
-            <h6>Comments</h6>
+            <CommentForm blogId={blogId} />
+        
+            <h6 className="pt-5">Comments</h6>
             {blog.comments && blog.comments.map((comment) => (
                 <>
                     <hr />
