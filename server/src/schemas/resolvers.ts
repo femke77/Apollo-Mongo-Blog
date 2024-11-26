@@ -50,7 +50,14 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user || !(await user.isCorrectPassword(password))) {
-        throw forbiddenException;
+        throw new GraphQLError(
+            "Incorrect credentials. Please try again.",
+            {
+              extensions: {
+                code: "FORBIDDEN",
+              },
+            }
+          );
       }
 
       const token = signToken(user.username, user.email, user._id);
