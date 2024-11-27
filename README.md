@@ -4,7 +4,7 @@
 
 ## Description ✏️
 
-A quick and simple blogging application with 1 level of comments for reviewing the technologies necessary for the upcoming project 3 final project.
+A quick and simple blogging application with 1 level of comments built for the purpose of reviewing the technologies necessary for the upcoming UCI FS boot camp final project.
 
 ## Table of Contents 📖
 
