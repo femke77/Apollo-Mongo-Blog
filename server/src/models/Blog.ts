@@ -1,5 +1,5 @@
 import { Schema, model, type Document } from "mongoose";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 import type { IComment } from "./Comment";
 import commentSchema from "./Comment.js";
 
@@ -28,8 +28,8 @@ const blogSchema = new Schema<IBlog>(
     dateCreated: {
       type: Date,
       default: Date.now,
-      get: (timestamp: Date): string =>
-        dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
+      // get: (timestamp: Date): string =>
+      //   dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
     },
     comments: [commentSchema],
   },
