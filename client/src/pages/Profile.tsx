@@ -13,6 +13,7 @@ const Profile = () => {
     fetchPolicy: "cache-and-network",
   });
   const blogs = data?.me.blogs || [];
+  
   const [deleteBlog] = useMutation(REMOVE_BLOG, {
     refetchQueries: [{ query: GET_ME }], // Refetch the GET_ME query
     awaitRefetchQueries: true, // Wait for the query to complete before resolving the mutation

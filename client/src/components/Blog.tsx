@@ -1,6 +1,7 @@
 import type { IBlog } from "../interfaces/Blog";
 import { Link } from "react-router-dom";
 
+
 const Blog = ({
   _id,
   title,
@@ -9,6 +10,10 @@ const Blog = ({
   dateCreated,
   commentCount,
 }: IBlog) => {
+
+
+
+  
   return (
     <>
       <div>
@@ -28,3 +33,4 @@ const Blog = ({
 };
 
 export default Blog;
+
