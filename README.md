@@ -49,7 +49,9 @@ Clone the repository, run the install command and then 'npm start:dev'. Then nav
 
 ## Known Issues
 
-TBD
+- Client routes are not appropriately protected
+- Need pagination implementation
+- Client code is not as componentized as it should be i.e. no Comment or CommentList
 
 ## How To Contribute
 
