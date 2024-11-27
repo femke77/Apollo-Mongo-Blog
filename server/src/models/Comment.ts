@@ -20,8 +20,8 @@ const commentSchema = new Schema<IComment>(
     dateCreated: {
       type: Date,
       default: Date.now,
-      get: (timestamp: Date): string =>
-        dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
+      // get: (timestamp: Date): string =>
+      //   dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
     },
   },
 

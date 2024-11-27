@@ -4,6 +4,12 @@ import { GET_BLOG } from "../utils/queries";
 import Blog from "../components/Blog";
 import { IBlog } from "../interfaces/Blog";
 import CommentForm from "../components/CommentForm";
+import utc from "dayjs/plugin/utc";
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 
 const SingleBlog = () => {
   const { blogId } = useParams();
@@ -14,6 +20,9 @@ const SingleBlog = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+  const timezone = dayjs.tz.guess() || 'America/Los_Angeles';
+  
+
   return (
     <div>
       <Blog
@@ -36,7 +45,7 @@ const SingleBlog = () => {
                 <div key={comment._id}>
                   <p>{comment.comment}</p>
                   <p>
-                    By: {comment.username} on {comment.dateCreated}
+                    By: {comment.username} on {dayjs.unix(comment.dateCreated as number/1000).tz(timezone).format('MM/DD/YYYY hh:mm A')}
                   </p>
                 </div>
               </>
