@@ -13,7 +13,7 @@ const Profile = () => {
     fetchPolicy: "cache-and-network",
   });
   const blogs = data?.me.blogs || [];
-  
+
   const [deleteBlog] = useMutation(REMOVE_BLOG, {
     refetchQueries: [{ query: GET_ME }], // Refetch the GET_ME query
     awaitRefetchQueries: true, // Wait for the query to complete before resolving the mutation
@@ -34,7 +34,8 @@ const Profile = () => {
         {" "}
         <AddBlog />
       </div>
-
+      <hr/>
+      <h4 className="mb-3">Your previous blogs:</h4>
       {blogs &&
         blogs.map((blog: IBlog) => (
           <div key={blog._id}>

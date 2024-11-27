@@ -10,7 +10,6 @@ const BlogList = () => {
   });
 
   const blogs = data?.blogs || [];
-  console.log(blogs);
   
   if (loading) {
     return <div>Loading...</div>;

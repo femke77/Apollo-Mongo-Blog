@@ -50,7 +50,7 @@ const BlogForm = ({
           onChange={(e) => setBlog({ ...blog, content: e.target.value })}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button className="my-3" variant="primary" type="submit">
         Submit
       </Button>
     </Form>

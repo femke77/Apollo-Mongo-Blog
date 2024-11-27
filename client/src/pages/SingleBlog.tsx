@@ -35,6 +35,9 @@ const SingleBlog = () => {
         commentCount={blog.commentCount}
       />
       <CommentForm blogId={blogId} />
+
+      {/* TODO implement Comment and CommentList and render here */}
+
       {blog.comments && blog.comments.length > 0 ? (
         <>
           <h6>Comments:</h6>
@@ -52,7 +55,7 @@ const SingleBlog = () => {
             ))}
         </>
       ) : (
-        <h6>No comments yet!</h6>
+        <h6>No one has commented yet, be the first!</h6>
       )}
 
       {error && <div>Error: {error.message}</div>}
