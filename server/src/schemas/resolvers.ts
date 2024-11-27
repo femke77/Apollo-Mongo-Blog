@@ -4,7 +4,6 @@ import { signToken } from "../utils/auth.js";
 import type IUserContext from "../interfaces/UserContext";
 import type IUserDocument from "../interfaces/UserDocument";
 import type IBlogInput from "../interfaces/BlogInput";
-import dayjs from "dayjs";
 
 const forbiddenException = new GraphQLError(
   "You are not authorized to perform this action.",
@@ -20,8 +19,6 @@ const resolvers = {
     me: async (_parent: any, _args: any, context: IUserContext) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate("blogs");
-        console.log(user);
-
         return user;
       }
       throw forbiddenException;
@@ -48,7 +45,7 @@ const resolvers = {
       _parent: any,
       { email, password }: { email: string; password: string },
     ): Promise<{ token: string; user: IUserDocument }> => {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email }).populate("blogs");
 
       if (!user || !(await user.isCorrectPassword(password))) {
         throw new GraphQLError("Incorrect credentials. Please try again.", {
@@ -71,7 +68,7 @@ const resolvers = {
           ...blogData,
           username: context.user.username,
         });
-        const user = await User.findByIdAndUpdate(
+      await User.findByIdAndUpdate(
           context.user._id,
           { $push: { blogs: blog._id } },
           { new: true },

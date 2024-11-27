@@ -1,5 +1,5 @@
 import { Schema, model, type Document } from "mongoose";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 import type { IComment } from "./Comment";
 import commentSchema from "./Comment.js";
 
@@ -8,7 +8,7 @@ export interface IBlog extends Document {
   title: string;
   content: string;
   dateCreated: Date | string;
-  comments: IComment[];
+  comments?: IComment[] | null | [];
 }
 
 const blogSchema = new Schema<IBlog>(
@@ -25,11 +25,12 @@ const blogSchema = new Schema<IBlog>(
       type: String,
       required: true,
     },
+    // leaving it in default unix time
     dateCreated: {
       type: Date,
       default: Date.now,
-      get: (timestamp: Date): string =>
-        dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
+      // get: (timestamp: Date): string =>
+      //   dayjs(timestamp).format("MMM DD, YYYY [at] hh:mm A"),
     },
     comments: [commentSchema],
   },
@@ -42,7 +43,10 @@ const blogSchema = new Schema<IBlog>(
 );
 
 blogSchema.virtual("commentCount").get(function (this: IBlog) {
-  return this.comments.length;
+  if (this.comments) {
+    return this.comments.length;
+  }
+  return 0
 });
 
 const Blog = model<IBlog>("Blog", blogSchema);
