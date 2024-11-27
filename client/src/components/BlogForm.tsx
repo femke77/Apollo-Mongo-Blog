@@ -2,10 +2,12 @@ import { Form, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// using this form for both adding and editing a blog which means sometimes we have to prefill the form with the previous values
+// and sometimes we don't. 
 const BlogForm = ({
   prevTitle = "",
   prevContent = "",
-  onSubmitFn,
+  onSubmitFn, // function has to change between a blog create or a blog update, but will require the data from this component
 }: {
   prevTitle?: string;
   prevContent?: string;

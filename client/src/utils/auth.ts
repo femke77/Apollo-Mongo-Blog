@@ -16,7 +16,6 @@ declare module "jwt-decode" {
   }
 }
 
-// create a new class to instantiate for a user
 class AuthService {
   // get user data
   getProfile() {
@@ -45,18 +44,18 @@ class AuthService {
   }
 
   getToken() {
-    // Retrieves the user token from localStorage
     return localStorage.getItem("id_token");
   }
 
   login(idToken: string) {
-    // Saves user token to localStorage
     localStorage.setItem("id_token", idToken);
+    // DO NOT USE WINDOW.LCATION.ASSIGN HERE - to navigate use the useNavigate hook from RRD
   }
 
   logout() {
-    // Clear user token and profile data from localStorage
     localStorage.removeItem("id_token");
+        // DO NOT USE WINDOW.LCATION.ASSIGN HERE - to navigate use the useNavigate hook from RRD
+
   }
 }
 

@@ -16,10 +16,13 @@ const SingleBlog = () => {
   const { loading, data, error } = useQuery(GET_BLOG, {
     variables: { blogId: blogId },
   });
+
   const blog: IBlog = data?.blog || {};
+  
   if (loading) {
     return <div>Loading...</div>;
   }
+
   const timezone = dayjs.tz.guess() || 'America/Los_Angeles';
   
 

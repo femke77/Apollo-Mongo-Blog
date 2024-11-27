@@ -10,13 +10,15 @@ import AddBlog from "../components/AddBlog";
 
 const Profile = () => {
   const { loading, data, error } = useQuery(GET_ME, {
-    fetchPolicy: "cache-and-network",
+    fetchPolicy: "cache-and-network", // use cache first, then make network request
   });
+
   const blogs = data?.me.blogs || [];
 
   const [deleteBlog] = useMutation(REMOVE_BLOG, {
     refetchQueries: [{ query: GET_ME }], // Refetch the GET_ME query
     awaitRefetchQueries: true, // Wait for the query to complete before resolving the mutation
+    // we could also update the cache directly and that would be even more efficient
   });
 
   const handleDelete = async (
@@ -24,6 +26,7 @@ const Profile = () => {
   ) => {
     await deleteBlog({ variables: { blogId: e.currentTarget.value } });
   };
+
   if (loading) {
     return <div>Loading...</div>;
   }
