@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
+import { useParams } from "react-router-dom";
 
 const Blog = ({
   _id,
@@ -15,18 +16,19 @@ const Blog = ({
   commentCount,
 }: IBlog) => {
 
-
+  const { blogId } = useParams();
   const timezone = dayjs.tz.guess() || 'America/Los_Angeles';
   const dateInSeconds = dateCreated as number / 1000;
   const localDate = dayjs.unix(dateInSeconds).tz(timezone).format('MM/DD/YYYY hh:mm A');
 
-  
+
   return (
     <>
       <div>
-        <Link className="" to={`/blog/${_id}`}>
+        {!blogId ? (<Link className="" to={`/blog/${_id}`}>
           {title}{" "}
-        </Link>
+        </Link>) : (<h5>{title}</h5>)}
+
         <p>{content}</p>
         <p>
           By: {username} on {localDate}

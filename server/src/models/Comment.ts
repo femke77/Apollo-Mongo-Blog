@@ -1,5 +1,4 @@
 import { Schema, type Document } from "mongoose";
-import dayjs from "dayjs";
 
 export interface IComment extends Document {
   username: string;
@@ -17,6 +16,7 @@ const commentSchema = new Schema<IComment>(
       type: String,
       required: true,
     },
+    // leaving the default unix time
     dateCreated: {
       type: Date,
       default: Date.now,

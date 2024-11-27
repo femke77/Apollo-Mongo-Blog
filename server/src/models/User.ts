@@ -6,7 +6,7 @@ interface IUser extends Document {
   email: string;
   password: string;
   isCorrectPassword(password: string): Promise<boolean>;
-  blogs: Types.ObjectId[];
+  blogs?: Types.ObjectId[] | null | [];
   blogCount: number;
 }
 
@@ -60,7 +60,10 @@ userSchema.methods.isCorrectPassword = async function (
 };
 
 userSchema.virtual("blogCount").get(function (this: IUser) {
-  return this.blogs.length;
+  if (this.blogs) {
+    return this.blogs.length;
+  }
+  return 0;
 });
 
 const User = model<IUser>("User", userSchema);
