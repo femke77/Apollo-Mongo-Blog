@@ -6,7 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <h5 className="display-2">Latest Blogs....</h5>
+      <h5 className="display-5">Latest Blogs....</h5>
       <Button className="m-4" onClick={() => navigate("/profile")}>
         Add a Blog
       </Button>
