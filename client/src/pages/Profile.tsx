@@ -47,7 +47,7 @@ const Profile = () => {
               _id={blog._id}
               commentCount={blog.commentCount}
             />
-            <Button className="m-2" onClick={handleDelete} value={blog._id} variant="danger">
+            <Button className="my-2 me-3" onClick={handleDelete} value={blog._id} variant="danger">
               Delete
             </Button>
             <NavLink to={`/edit-blog/${blog._id}`}>Edit Blog</NavLink>

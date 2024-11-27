@@ -20,14 +20,14 @@ function NavBar({
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary mb-2 ">
       <Container fluid>
         <Navbar.Brand as={NavLink} to="/">
           Tech Blog
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Toggle aria-controls="basic-navbar-nav " />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="ml-auto align-items-end mx-4 justify-content-end">
             <Nav.Link as={NavLink} to="/">
               Home
             </Nav.Link>
