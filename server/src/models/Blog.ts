@@ -1,9 +1,9 @@
-import { Schema, model, type Document } from "mongoose";
-// import dayjs from "dayjs";
+import { Schema, Types, model} from "mongoose";
 import type { IComment } from "./Comment";
 import commentSchema from "./Comment.js";
 
-export interface IBlog extends Document {
+export interface IBlog {
+  _id: Types.ObjectId
   username: string;
   title: string;
   content: string;

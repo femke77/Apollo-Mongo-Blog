@@ -4,6 +4,7 @@ import { signToken } from "../utils/auth.js";
 import type IUserContext from "../interfaces/UserContext";
 import type IUserDocument from "../interfaces/UserDocument";
 import type IBlogInput from "../interfaces/BlogInput";
+import IBlogDocument from "../interfaces/BlogDocument.js";
 
 const forbiddenException = new GraphQLError(
   "You are not authorized to perform this action.",
@@ -18,7 +19,7 @@ const resolvers = {
   Query: {
     me: async (_parent: any, _args: any, context: IUserContext) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({path: "blogs", options: { sort: { dateCreated: -1 } } });
+        const user = await User.findById(context.user._id).populate<{blog: IBlogDocument}>({path: "blogs", options: { sort: { dateCreated: -1 } } });
         return user;
       }
       throw forbiddenException;
@@ -39,7 +40,7 @@ const resolvers = {
       const user = await User.create(args);
       const token = signToken(user.username, user.email, user._id);
 
-      return { token, user: user as IUserDocument };
+      return { token, user };
     },
     login: async (
       _parent: any,
@@ -56,7 +57,7 @@ const resolvers = {
       }
 
       const token = signToken(user.username, user.email, user._id);
-      return { token, user: user as IUserDocument };
+      return { token, user };
     },
     addBlog: async (
       _parent: any,
