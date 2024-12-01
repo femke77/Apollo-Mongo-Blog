@@ -1,7 +1,7 @@
-import { Schema, model, type Document, Types } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 import bcrypt from "bcrypt";
 
-interface IUser extends Document {
+interface IUser {
   _id: Types.ObjectId
   username: string;
   email: string;
@@ -9,6 +9,8 @@ interface IUser extends Document {
   isCorrectPassword(password: string): Promise<boolean>;
   blogs?: Types.ObjectId[] | null | [];
   blogCount: number;
+  isNew: boolean
+  isModified: (password: string) => boolean
 }
 
 const userSchema = new Schema<IUser>(
