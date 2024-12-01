@@ -1,4 +1,4 @@
-import { Schema, type Document, Types } from "mongoose";
+import { Schema,  Types } from "mongoose";
 
 export interface IComment {
   _id: Types.ObjectId
