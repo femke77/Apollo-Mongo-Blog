@@ -6,9 +6,6 @@ export const ADD_USER = gql`
       token
       user {
         _id
-        username
-        email
-        blogCount
       }
     }
   }
@@ -20,9 +17,6 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username
-        email
-        blogCount
       }
     }
   }
@@ -32,17 +26,10 @@ export const ADD_BLOG = gql`
   mutation AddBlog($blogData: BlogInput) {
     addBlog(blogData: $blogData) {
       _id
-      username
-      title
-      content
-      dateCreated
+
       comments {
         _id
-        username
-        comment
-        dateCreated
       }
-      commentCount
     }
   }
 `;
@@ -51,17 +38,10 @@ export const ADD_COMMENT = gql`
   mutation addComment($blogId: ID!, $comment: String!) {
     addComment(blogId: $blogId, comment: $comment) {
       _id
-      username
-      title
-      content
-      dateCreated
+
       comments {
         _id
-        username
-        comment
-        dateCreated
       }
-      commentCount
     }
   }
 `;
@@ -70,17 +50,10 @@ export const REMOVE_BLOG = gql`
   mutation RemoveBlog($blogId: ID!) {
     removeBlog(blogId: $blogId) {
       _id
-      username
-      title
-      content
-      dateCreated
+
       comments {
         _id
-        username
-        comment
-        dateCreated
       }
-      commentCount
     }
   }
 `;

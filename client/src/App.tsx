@@ -11,6 +11,8 @@ import Navbar from "./components/NavBar";
 import Auth from "./utils/auth";
 import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import "./index.css"
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,9 +44,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      <div className="p-2">
+      <main className="p-4">
         <Outlet context={[loggedIn, setLoggedIn] satisfies AuthContextType} />
-      </div>
+      </main>
     </ApolloProvider>
   );
 }

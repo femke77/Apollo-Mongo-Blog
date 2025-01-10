@@ -23,7 +23,7 @@ function NavBar({
     <Navbar expand="lg" className="bg-body-tertiary mb-2 ">
       <Container fluid>
         <Navbar.Brand as={NavLink} to="/">
-          Tech Blog
+         <h1> Tech Blog</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

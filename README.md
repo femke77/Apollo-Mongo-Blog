@@ -4,7 +4,10 @@
 
 ## Description ✏️
 
-A quick and simple blogging application with 1 level of comments built for the purpose of reviewing the technologies necessary for the upcoming UCI FS boot camp final project.
+A quick and simple blogging application built in TypeScript, React, and Apollo GQL with 1 level of comments. The focus here was not on CSS, so it's minimal. The app uses JWT authentication and Outlet context provided by react router dom to check loggedIn status when needed. An auth guard component protects the profile route. 
+
+Currently using refetch functionality for updating the DOM but intend to switch to the Apollo cache. 
+
 
 ## Table of Contents 📖
 
@@ -49,7 +52,7 @@ Clone the repository, run the install command and then 'npm start:dev'. Then nav
 
 ## Known Issues
 
-- Client routes are not appropriately protected
+- Deployed to render so the load time is prohibitively slow. Need to switch to headless architechture, deploy client on Netlify and leave server on Render and implement CORS. 
 - Need pagination implementation
 - Client code is not as componentized as it should be i.e. no Comment or CommentList
 
@@ -67,7 +70,7 @@ No tests
 
 ## Credits
 
-TBD
+Bootstrap and React Bootstrap for quick and simple styling.
 
 ## Questions
 

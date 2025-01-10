@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import AuthGuard from "./components/AuthGuard.js";
 import App from "./App.jsx";
 import Home from "./pages/Home";
 import Blog from "./pages/SingleBlog";
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <AuthGuard><Profile /></AuthGuard>,
       },
       {
         path: "/edit-blog/:blogId",
